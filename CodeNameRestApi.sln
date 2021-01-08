@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30803.129
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeNameRestApi", "CodeNameRestApi\CodeNameRestApi.csproj", "{6A5FBE0B-921D-472B-AC03-DAC27096F9AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordsDatabaseAPI", "..\WordsDatabaseAPI\WordsDatabaseAPI\WordsDatabaseAPI.csproj", "{2A5B3D71-C96C-4352-BB7D-3D55C7AF0580}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A5FBE0B-921D-472B-AC03-DAC27096F9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A5FBE0B-921D-472B-AC03-DAC27096F9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A5FBE0B-921D-472B-AC03-DAC27096F9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A5FBE0B-921D-472B-AC03-DAC27096F9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A5B3D71-C96C-4352-BB7D-3D55C7AF0580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A5B3D71-C96C-4352-BB7D-3D55C7AF0580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A5B3D71-C96C-4352-BB7D-3D55C7AF0580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A5B3D71-C96C-4352-BB7D-3D55C7AF0580}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F77C5604-5AD4-4EDC-BE95-70EA834F78D3}
+	EndGlobalSection
+EndGlobal
