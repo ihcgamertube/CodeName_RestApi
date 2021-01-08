@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\Tamir\\Projects\\Code Name Project\\CodeNameRestApi\\CodeNameRestApi\\CodeNameRestApi.csproj": {
-      "version": "1.0.0",
+      "version": "0.0.1",
       "restore": {
         "projectUniqueName": "D:\\Tamir\\Projects\\Code Name Project\\CodeNameRestApi\\CodeNameRestApi\\CodeNameRestApi.csproj",
         "projectName": "CodeNameRestApi",
@@ -91,7 +91,7 @@
       }
     },
     "D:\\Tamir\\Projects\\Code Name Project\\WordsDatabaseAPI\\WordsDatabaseAPI\\WordsDatabaseAPI.csproj": {
-      "version": "1.0.0",
+      "version": "0.0.1",
       "restore": {
         "projectUniqueName": "D:\\Tamir\\Projects\\Code Name Project\\WordsDatabaseAPI\\WordsDatabaseAPI\\WordsDatabaseAPI.csproj",
         "projectName": "WordsDatabaseAPI",

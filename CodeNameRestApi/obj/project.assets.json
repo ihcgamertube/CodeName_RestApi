@@ -1490,7 +1490,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "WordsDatabaseAPI/1.0.0": {
+      "WordsDatabaseAPI/0.0.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
@@ -5382,7 +5382,7 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "WordsDatabaseAPI/1.0.0": {
+    "WordsDatabaseAPI/0.0.1": {
       "type": "project",
       "path": "../../WordsDatabaseAPI/WordsDatabaseAPI/WordsDatabaseAPI.csproj",
       "msbuildProject": "../../WordsDatabaseAPI/WordsDatabaseAPI/WordsDatabaseAPI.csproj"
@@ -5394,14 +5394,14 @@
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 5.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.10.10",
       "Swashbuckle.AspNetCore >= 5.6.3",
-      "WordsDatabaseAPI >= 1.0.0"
+      "WordsDatabaseAPI >= 0.0.1"
     ]
   },
   "packageFolders": {
     "C:\\Users\\gelbe\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "0.0.1",
     "restore": {
       "projectUniqueName": "D:\\Tamir\\Projects\\Code Name Project\\CodeNameRestApi\\CodeNameRestApi\\CodeNameRestApi.csproj",
       "projectName": "CodeNameRestApi",
