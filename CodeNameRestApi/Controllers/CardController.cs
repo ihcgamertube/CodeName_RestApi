@@ -19,11 +19,11 @@ namespace CodeNameRestApi.Controllers
             _cardService = cardService;
         }
 
-        [HttpGet("/{id:maxlength(8)}", Name = "GetCard")]
-        public ActionResult<CardDocument> GetCardAtIndex(string id)
+        [HttpGet("/{word:maxlength(15)}", Name = "GetCard")]
+        public ActionResult<string> GetCardIfExists(string word)
         {
             var handler = _cardService._mongoHandler;
-            Task<CardDocument> cardTask = handler.FindCardAtIndexAsync(uint.Parse(id));
+            Task<CardDocument> cardTask = handler.FindCardAsync(word);
             cardTask.Wait();
 
             CardDocument card = cardTask.Result;
@@ -32,7 +32,7 @@ namespace CodeNameRestApi.Controllers
                 return NotFound();
             }
 
-            return card;
+            return card.Word;
         }
 
         [HttpGet("/count/", Name = "GetCount")]
@@ -63,13 +63,10 @@ namespace CodeNameRestApi.Controllers
         }
 
         [HttpPost("")]
-        public ActionResult<CardDocument> PostCardToDatabase(string word)
+        public ActionResult<string> PostCardToDatabase(string word)
         {
             var handler = (WordsDatabaseAPI.DatabaseModels.MongoHandler)_cardService._mongoHandler;
-            Task<CardDocument> cardTask = CardDocument.CreateBasedOnWordAsync(handler, word);
-            cardTask.Wait();
-
-            CardDocument card = cardTask.Result;
+            CardDocument card = new CardDocument(word);
 
             if (card == null)
                 return NotFound();
@@ -78,33 +75,17 @@ namespace CodeNameRestApi.Controllers
             if (!isSuccesfull)
                 return BadRequest();
 
-            return CreatedAtRoute("GetCard", new { id = card.Id.ToString() }, card);
+            return CreatedAtRoute("GetCard", new { word = card.Word }, card.Word);
         }
 
         [HttpPut("{word}/{newWord}")]
         public IActionResult UpdateCardInDatabase(string word, string newWord)
         {
-            _cardService._mongoHandler.RemoveWordAsync(word).Wait();
-
-            var handler = (WordsDatabaseAPI.DatabaseModels.MongoHandler)_cardService._mongoHandler;
-            Task<CardDocument> cardTask = CardDocument.CreateBasedOnWordAsync(handler, newWord);
-            cardTask.Wait();
-
-            bool isSuccesfull = handler.InsertCard(cardTask.Result);
+            bool isSuccesfull = _cardService._mongoHandler.UpdateWord(word, newWord);
             if (!isSuccesfull)
-                return BadRequest();
+                return BadRequest("Update Failed!");
 
             return NoContent();
         }
-
-        [HttpDelete("{word}")]
-        public IActionResult DeleteWord(string word)
-        {
-            Task<bool> removeTask = _cardService._mongoHandler.RemoveWordAsync(word);
-            removeTask.Wait();
-
-            return (removeTask.Result) ? NoContent() : NotFound(); 
-        }
-
     }
 }

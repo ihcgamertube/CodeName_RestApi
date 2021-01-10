@@ -23,13 +23,13 @@
   },
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "CodeNameRestApi/1.0.0": {
+      "CodeNameRestApi/0.0.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.0",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "5.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.10",
           "Swashbuckle.AspNetCore": "5.6.3",
-          "WordsDatabaseAPI": "1.0.0",
+          "WordsDatabaseAPI": "0.0.1",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -1248,7 +1248,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "WordsDatabaseAPI/1.0.0": {
+      "WordsDatabaseAPI/0.0.1": {
         "dependencies": {
           "MongoDB.Driver": "2.11.5"
         },
@@ -2960,7 +2960,7 @@
     }
   },
   "libraries": {
-    "CodeNameRestApi/1.0.0": {
+    "CodeNameRestApi/0.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -3644,7 +3644,7 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "WordsDatabaseAPI/1.0.0": {
+    "WordsDatabaseAPI/0.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
