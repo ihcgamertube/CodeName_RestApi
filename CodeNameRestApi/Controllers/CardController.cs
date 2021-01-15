@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CodeNameRestApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using WordsDatabaseAPI.DatabaseModels.CollectionModels;
+using WordsDatabaseAPI.DatabaseModels.ResultModels;
 
 namespace CodeNameRestApi.Controllers
 {
@@ -52,10 +53,10 @@ namespace CodeNameRestApi.Controllers
             if (GetCardsCount().Value < numberOfRandomNumbers)
                 return BadRequest();
             
-            Task<CardDocument[]> randomTask = _cardService._mongoHandler.FindMultipleRandomCardsAsync((uint)numberOfRandomNumbers);
+            Task<RandomActionResult> randomTask = _cardService._mongoHandler.FindMultipleRandomCardsAsync((uint)numberOfRandomNumbers);
             randomTask.Wait();
 
-            CardDocument[] randomCards = randomTask.Result;
+            CardDocument[] randomCards = randomTask.Result.Result;
             if (randomCards.Length != numberOfRandomNumbers)
                 return NotFound();
 
@@ -69,11 +70,11 @@ namespace CodeNameRestApi.Controllers
             CardDocument card = new CardDocument(word);
 
             if (card == null)
-                return NotFound();
+                return NotFound(InsertActionResult.BAD_VALUE);
 
-            bool isSuccesfull = handler.InsertCard(card);
-            if (!isSuccesfull)
-                return BadRequest();
+            InsertActionResult actionResult = handler.InsertCard(card);
+            if (actionResult != InsertActionResult.OK)
+                return BadRequest(actionResult.ToString());
 
             return CreatedAtRoute("GetCard", new { word = card.Word }, card.Word);
         }
@@ -81,9 +82,9 @@ namespace CodeNameRestApi.Controllers
         [HttpPut("{word}/{newWord}")]
         public IActionResult UpdateCardInDatabase(string word, string newWord)
         {
-            bool isSuccesfull = _cardService._mongoHandler.UpdateWord(word, newWord);
-            if (!isSuccesfull)
-                return BadRequest("Update Failed!");
+            UpdateActionResult actionResult = _cardService._mongoHandler.UpdateWord(word, newWord);
+            if (actionResult != UpdateActionResult.OK)
+                return BadRequest(actionResult.ToString());
 
             return NoContent();
         }
